@@ -7,30 +7,36 @@ De novo assembly of reef fishes with long and linked reads
 
 ### Scaff10X
 
-**Run Scaff10X with default settings (local):**
-```
-${SRC}/scaff10x.sh
-```
-Start run ~ 20 May 18:40, < 5GB RAM, 1 CPU during BWA steps so far
-
-bwa mem - n specified cores, < 12GB RAM
-
-End run ~ 23:41 - segmentation fault `[main] Version: 0.7.17-r1198-dirty`
-
-**Run Scaff10X on HPC:**
-```
-qsub src/scaff10x_default_pbs.sh
-```
-
-Identical error as local run (segfault at scaff_bwa)
-
-**Attempt with gunzipped fastq**
-
-Same error
-
 **Debarcode linked reads with `scaff_reads`**
 ```
 src/scaff_reads_local.sh
+```  
+
+**Run Scaff10X on debarcoded reads**
+
+Scaff10X was run twice, one without `-plot`, and one without `-plot`. This is due to `scaff-bin/plot-10x-length.sh` requiring `gnuplot` and `inkscape`. The run with `-plot` is needed to generate the `.freq` files for plotting.
+
+```
+# Without plotting [tmp_rununik_191401]
+src/scaff10x_default_pbs.sh
+
+# With plotting [tmp_rununik_125005]
+src/scaff10x_defaultPlot_pbs.sh
+```
+**Assess scaffolding quality with QUAST**
+```
+qsub src/quast_pbs.sh
+```
+
+Output .fa identical to input. Without specifying `-plot`, pipeline terminates (exit: 0) after `scaff_bwa` completed. Same as [this issue](https://github.com/wtsi-hpag/Scaff10X/issues/19).
+
+**Running pipeline manually lol**
+```
+# Plot barcode length distribution
+/home/fjay0039/Scaff10X/src/scaff-bin/
+
+sort -k 2,2 -k 5,5n align.length-5 > align.length-sort
+/home/fjay0039/Scaff10X/src/scaff-bin/scaff_barcode-cover align.length-sort break.dat cover.dat > break.out
 ```
 
 **To-do**

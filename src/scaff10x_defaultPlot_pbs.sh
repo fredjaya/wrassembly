@@ -4,8 +4,6 @@
 #PBS -l select=1:ncpus=24:mem=64GB
 #PBS -l walltime=12:00:00
 
-module load gnuplot
-
 scaff10x=/home/fjay0039/Scaff10X/src/scaff10x
 DIR=/scratch/WholeGenomeAssembly/2105_scaff10x
 SRC=/home/fjay0039/wrassembly/src
