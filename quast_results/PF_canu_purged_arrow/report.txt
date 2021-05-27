@@ -1,0 +1,25 @@
+All statistics are based on contigs of size >= 500 bp, unless otherwise noted (e.g., "# contigs (>= 0 bp)" and "Total length (>= 0 bp)" include all contigs).
+Suggestion: assembly PF_canu_purged_arrow contains continuous fragments of N's of length >= 10 bp. You may consider rerunning QUAST using --scaffolds (-s) option!
+
+Assembly                    PF_canu_purged_arrow
+# contigs (>= 0 bp)         2671                
+# contigs (>= 1000 bp)      2671                
+# contigs (>= 5000 bp)      2668                
+# contigs (>= 10000 bp)     2666                
+# contigs (>= 25000 bp)     2394                
+# contigs (>= 50000 bp)     2059                
+Total length (>= 0 bp)      1367488635          
+Total length (>= 1000 bp)   1367488635          
+Total length (>= 5000 bp)   1367477602          
+Total length (>= 10000 bp)  1367461579          
+Total length (>= 25000 bp)  1362251760          
+Total length (>= 50000 bp)  1350331890          
+# contigs                   2671                
+Largest contig              8522749             
+Total length                1367488635          
+GC (%)                      39.16               
+N50                         1190639             
+N75                         602234              
+L50                         339                 
+L75                         741                 
+# N's per 100 kbp           0.03                

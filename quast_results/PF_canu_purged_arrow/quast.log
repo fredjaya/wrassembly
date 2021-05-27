@@ -1,0 +1,56 @@
+/usr/local/quast/4.3/quast.py -o /home/fjay0039/wrassembly/quast_results --eukaryote --no-html --threads 8 /project/WholeGenomeAssembly/parrotfish/PF_canu_purged_arrow.fasta
+
+Version: 4.3
+
+System information:
+  OS: Linux-2.6.32-696.16.1.el6.x86_64-x86_64-with-centos-6.9-Final (linux_64)
+  Python version: 2.7.9
+  CPUs number: 48
+
+Started: 2021-05-26 13:53:36
+
+Logging to /home/fjay0039/wrassembly/quast_results/quast.log
+NOTICE: Output directory already exists. Existing Nucmer alignments can be used
+
+CWD: /home/fjay0039
+Main parameters: 
+  Threads: 8, eukaryotic: true, minimum contig length: 500, ambiguity: one, threshold for extensive misassembly size: 1000
+
+Contigs:
+  Pre-processing...
+  /project/WholeGenomeAssembly/parrotfish/PF_canu_purged_arrow.fasta ==> PF_canu_purged_arrow
+
+2021-05-26 13:55:02
+Running Basic statistics processor...
+  Contig files: 
+    PF_canu_purged_arrow
+  Calculating N50 and L50...
+    PF_canu_purged_arrow, N50 = 1190639, L50 = 339, Total length = 1367488635, GC % = 39.16, # N's per 100 kbp =  0.03
+  Drawing Nx plot...
+    saved to /home/fjay0039/wrassembly/quast_results/basic_stats/Nx_plot.pdf
+  Drawing cumulative plot...
+    saved to /home/fjay0039/wrassembly/quast_results/basic_stats/cumulative_plot.pdf
+  Drawing GC content plot...
+    saved to /home/fjay0039/wrassembly/quast_results/basic_stats/GC_content_plot.pdf
+Done.
+
+NOTICE: Genes are not predicted by default. Use --gene-finding option to enable it.
+
+2021-05-26 13:56:09
+Creating large visual summaries...
+This may take a while: press Ctrl-C to skip this step..
+  1 of 1: Creating PDF with all tables and plots...
+Done
+
+2021-05-26 13:56:09
+RESULTS:
+  Text versions of total report are saved to /home/fjay0039/wrassembly/quast_results/report.txt, report.tsv, and report.tex
+  Text versions of transposed total report are saved to /home/fjay0039/wrassembly/quast_results/transposed_report.txt, transposed_report.tsv, and transposed_report.tex
+  PDF version (tables and plots) is saved to /home/fjay0039/wrassembly/quast_results/report.pdf
+  Log saved to /home/fjay0039/wrassembly/quast_results/quast.log
+
+Finished: 2021-05-26 13:56:09
+Elapsed time: 0:02:33.437693
+NOTICEs: 2; WARNINGs: 0; non-fatal ERRORs: 0
+
+Thank you for using QUAST!

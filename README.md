@@ -3,7 +3,41 @@ De novo assembly of reef fishes with long and linked reads
 
 ## Installation and dependencies
 
+Long Ranger v2.2.2
 [Scaff10X v4.2](https://github.com/fredjaya/Scaff10X/commit/7e8e77e6ebe4be5bb4c4e22a58010ba48d7d2a39)
+
+## Long read assembly assessment
+
+```
+qsub -v FA=/project/WholeGenomeAssembly/parrotfish/PF_canu_purged_arrow.fasta src/quast.sh
+```
+
+## Linked read scaffolding  
+
+Raw TELL-seq reads previously demultiplexed and processed with Tell-Read.
+
+TELL-seq barcodes converted and downsized to be 10X compatible:
+```
+ust10x -sz 4000000 \
+  -i1 TellreadOutput_I1_T505.fastq.gz.corrected.fastq.err_barcode_removed.fastq.gz \
+  -r1 TellreadOutput_R1_T505.fastq.gz.corrected.fastq.err_barcode_removed.fastq.gz \
+  -r2 TellreadOutput_R2_T505.fastq.gz.corrected.fastq.err_barcode_removed.fastq.gz \
+  -wl 4M-with-alts-february-2016.txt
+
+pigz *_sl.fastq.gz.4tenx.fastq
+
+mv R1_sl.fastq.gz.4tenx.fastq.gz PF-4M-BC_S1_L001_R1_001.fastq.gz
+mv R2_sl.fastq.gz.4tenx.fastq.gz PF-4M-BC_S1_L001_R2_001.fastq.gz
+```
+
+Long Ranger barcode whitelist replaced with TELL-seq whitelist.
+
+### Long Ranger
+
+```
+# Process and prepare barcodes for ARCS
+qsub src/longranger_basic.sh
+```
 
 ### Scaff10X
 
@@ -40,4 +74,5 @@ sort -k 2,2 -k 5,5n align.length-5 > align.length-sort
 ```
 
 **To-do**
+- [ ] Troubleshoot identical pre-n50 vs. post-n50
 - [ ] Get read depth to inform `reads` and `link`
