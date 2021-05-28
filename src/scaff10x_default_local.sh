@@ -6,9 +6,10 @@ SRC=/home/meep/Desktop/People/fred/wrassembly/src
 
 cd $DIR
 
-$scaff10x -nodes 12 \
+$scaff10x -nodes 11 \
 	-plot barcode_length.png \
 	FW_canu_purged_arrow.fasta \
-	505_R1_sl.fastq.gz.4tenx.fastq.gz \
-	505_R2_sl.fastq.gz.4tenx.fastq.gz
+	505_R1-BC.fastq.gz \
+	505_R2-BC.fastq.gz \
+	505_scaff10x.fasta
 

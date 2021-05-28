@@ -4,15 +4,22 @@ De novo assembly of reef fishes with long and linked reads
 ## Installation and dependencies
 
 Long Ranger v2.2.2
+ARCS v1.2.1
+LINKS v1.8.7
 [Scaff10X v4.2](https://github.com/fredjaya/Scaff10X/commit/7e8e77e6ebe4be5bb4c4e22a58010ba48d7d2a39)
 
-## Long read assembly assessment
+## PacBio assembly
 
+Previously assembled with canu and polished with arrow.
+
+Get assembly quality:
 ```
 qsub -v FA=/project/WholeGenomeAssembly/parrotfish/PF_canu_purged_arrow.fasta src/quast.sh
 ```
 
 ## Linked read scaffolding  
+
+**Process TELL-seq barcodes**
 
 Raw TELL-seq reads previously demultiplexed and processed with Tell-Read.
 
@@ -32,14 +39,27 @@ mv R2_sl.fastq.gz.4tenx.fastq.gz PF-4M-BC_S1_L001_R2_001.fastq.gz
 
 Long Ranger barcode whitelist replaced with TELL-seq whitelist.
 
-### Long Ranger
-
+Generate interleaved fasta file with Long Ranger:
 ```
-# Process and prepare barcodes for ARCS
 qsub src/longranger_basic.sh
 ```
 
-### Scaff10X
+Generate graphviz Dot file (.gv) with ARCS:
+```
+src/arcs.sh
+```
+
+Join nodes with LINKS:
+```
+src/links.sh
+```
+
+**To-do:**
+- [ ] Check LINKS run/troubleshoot
+- [ ] Run QUAST on LINKS output
+- [ ] Re-run using error correction with tigmint?
+
+### Test Scaff10X with fairy wrasse (ignore/remove)
 
 **Debarcode linked reads with `scaff_reads`**
 ```
