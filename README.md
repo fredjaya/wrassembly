@@ -54,10 +54,43 @@ Join nodes with LINKS:
 src/links.sh
 ```
 
+contigs == scaffolds, .original.gv empty, troubleshoot.
+
+```
+arcs -f /media/meep/GenomeAbyss/assembly/arcslinks/PF_canu_purged_arrow.renamed.fa \
+	-a /media/meep/GenomeAbyss/assembly/arcslinks/PF_canu_purged_arrow_bamfiles.fof \
+	-v -c 2 -m 15-10000 -s 98 -r 0.05 -e 30000 -z 500 -d 0 --gap 100 \
+	-b /media/meep/GenomeAbyss/assembly/arcslinks/PF_canu_purged_arrow_c2_m15-10000_s98_r0.05_e30000_z500 \
+	--barcode-counts barcodeMultiplicityArcs.tsv
+```
+
+Check coverage:
+```
+samtools sort -o PF_canu_purged_arrow.resorted.bam PF_canu_purged_arrow.sorted.bam
+
+samtools depth PF_canu_purged_arrow.resorted.bam > PF_canu_purged_arrow.resorted.bam.depth
+cat PF_canu_purged_arrow.resorted.bam.depth awk '{sum+=$3} END { print "Average = ", sum/NR}'
+
+# Average =  13.7449
+
+samtools flagstat PF_canu_purged_arrow.resorted.bam -@ 9 > PF_canu_purged_arrow.resorted.bam.flagstat
+```
+
+Check coverage of only R1:
+```
+cd /media/meep/GenomeAbyss/
+bwa index PF_canu_purged_arrow.fasta
+bwa mem -t 11 PF_canu_purged_arrow.fasta convert_tellseq_10x/PF-4M-BC_S1_L001_R1_001.fastq.gz | \
+	samtools sort -o coverage/PF-4M-R1.bam - -@ 10
+```
+
 **To-do:**
-- [ ] Check LINKS run/troubleshoot
-- [ ] Run QUAST on LINKS output
 - [ ] Re-run using error correction with tigmint?
+
+### Scaff10X
+```
+src/scaff_reads_local.sh
+```
 
 ### Test Scaff10X with fairy wrasse (ignore/remove)
 
