@@ -64,16 +64,25 @@ arcs -f /media/meep/GenomeAbyss/assembly/arcslinks/PF_canu_purged_arrow.renamed.
 	--barcode-counts barcodeMultiplicityArcs.tsv
 ```
 
-Check coverage:
+Check coverage of ARCS-aligned .bam:
 ```
 samtools sort -o PF_canu_purged_arrow.resorted.bam PF_canu_purged_arrow.sorted.bam
 
 samtools depth PF_canu_purged_arrow.resorted.bam > PF_canu_purged_arrow.resorted.bam.depth
-cat PF_canu_purged_arrow.resorted.bam.depth awk '{sum+=$3} END { print "Average = ", sum/NR}'
+cat PF_canu_purged_arrow.resorted.bam.depth | awk '{sum+=$3} END { print "Average = ", sum/NR}'
 
 # Average =  13.7449
 
 samtools flagstat PF_canu_purged_arrow.resorted.bam -@ 9 > PF_canu_purged_arrow.resorted.bam.flagstat
+
+# 53.05% reads are mapped
+```
+
+Inspect unmapped reads:
+```
+samtools view -f 4 -b PF_canu_purged_arrow.resorted.bam -@ 11 > PF_canu_purged_arrow.resorted_unmapped.bam
+
+# To-do: blastn for contamination
 ```
 
 Check coverage of only R1:
@@ -81,7 +90,19 @@ Check coverage of only R1:
 cd /media/meep/GenomeAbyss/
 bwa index PF_canu_purged_arrow.fasta
 bwa mem -t 11 PF_canu_purged_arrow.fasta convert_tellseq_10x/PF-4M-BC_S1_L001_R1_001.fastq.gz | \
-	samtools sort -o coverage/PF-4M-R1.bam - -@ 10
+	samtools sort -@ 10 -o coverage/PF-4M-R1.bam -
+
+samtools flagstat PF-4M-R1.bam -@ 10 > PF-4M-R1.bam.flagstat
+
+# < 30% mapped...
+
+samtools depth PF-4M-R1.bam > PF-4M-R1.bam.depth
+cat PF-4M-R1.bam.depth | awk '{sum+=$3} END { print "Average = ", sum/NR}'
+
+# Average =  10.8254
+
+samtools view -f 4 -b PF-4M-R1.bam -@ 11 > PF-4M-R1_unmapped.bam
+samtools view -F 4 -b PF-4M-R1.bam -@ 11 > PF-4M-R1_mapped.bam
 ```
 
 **To-do:**
