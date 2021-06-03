@@ -60,6 +60,18 @@ Generate interleaved fasta file with trimmed and processed barcodes using Long R
 qsub src/longranger_basic.sh
 ```
 
+Scaffold draft assembly with linked-reads using ARKS/LINKS:
+```
+src/arks.sh FW
+src/arks.sh PF
+```
+
+FW and PF - original.gv populated but no scaffolding - change parameters
+
+Attempt with a=0.9 l=2 z=1000:
+```
+src/links.sh
+```
 **To-do:**
 - [ ] Check mapping % and coverage of longranger reads
 - [ ] Run arks
