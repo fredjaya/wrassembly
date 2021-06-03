@@ -68,10 +68,14 @@ src/arks.sh PF
 
 FW and PF - original.gv populated but no scaffolding - change parameters
 
-Attempt with a=0.9 l=2 z=1000:
-```
-src/links.sh
-```
+**ARKS/LINKS parameter sweep**  
+c   | m        | z    | l   | a   | num_scaffs  
+--- | -------- | ---- | --- | --- | ---  
+5   | 50-10000 | 500  | 5   | 0.3 | 2670  
+5   | 50-10000 | 1000 | 2   | 0.9 | 2644  
+3   | 50-10000 | 500  | 5   | 0.3 | 2213
+ 
+
 **To-do:**
 - [ ] Check mapping % and coverage of longranger reads
 - [ ] Run arks

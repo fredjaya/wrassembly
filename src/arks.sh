@@ -14,7 +14,7 @@ cp -s ${OUT}/longranger/${ID}-barcoded.fastq.gz ${ID}-barcoded.fq.gz
 ${BIN}/Examples/arcs-make arks \
 	draft=${ID}_canu_purged_arrow \
 	reads=${ID}-barcoded \
-	c=3
+	c=2
 	a=0.9 \
 	l=2 \
 	m=10-10000 \
