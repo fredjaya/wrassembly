@@ -1,0 +1,22 @@
+Assembly	PF_canu_purged_arrow_c3_m10-250_s98_r0.05_e70000_z500_l3_a0.9.scaffolds
+# contigs (>= 0 bp)	1215
+# contigs (>= 1000 bp)	1215
+# contigs (>= 5000 bp)	1212
+# contigs (>= 10000 bp)	1210
+# contigs (>= 25000 bp)	946
+# contigs (>= 50000 bp)	672
+Total length (>= 0 bp)	1367634235
+Total length (>= 1000 bp)	1367634235
+Total length (>= 5000 bp)	1367623202
+Total length (>= 10000 bp)	1367607179
+Total length (>= 25000 bp)	1362548533
+Total length (>= 50000 bp)	1353057786
+# contigs	1215
+Largest contig	22842595
+Total length	1367634235
+GC (%)	39.16
+N50	4977857
+N75	2473603
+L50	70
+L75	166
+# N's per 100 kbp	10.68

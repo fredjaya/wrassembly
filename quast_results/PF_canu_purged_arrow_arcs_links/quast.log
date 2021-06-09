@@ -1,0 +1,56 @@
+/usr/local/quast/4.3/quast.py -o /scratch/WholeGenomeAssembly/arcs --eukaryote --no-html --threads 8 /scratch/WholeGenomeAssembly/arcs/PF_canu_purged_arrow_c3_m10-250_s98_r0.05_e70000_z500_l3_a0.9.scaffolds.fa
+
+Version: 4.3
+
+System information:
+  OS: Linux-2.6.32-696.16.1.el6.x86_64-x86_64-with-centos-6.9-Final (linux_64)
+  Python version: 2.7.9
+  CPUs number: 24
+
+Started: 2021-06-04 14:06:53
+
+Logging to /scratch/WholeGenomeAssembly/arcs/quast.log
+NOTICE: Output directory already exists. Existing Nucmer alignments can be used
+
+CWD: /home/fjay0039
+Main parameters: 
+  Threads: 8, eukaryotic: true, minimum contig length: 500, ambiguity: one, threshold for extensive misassembly size: 1000
+
+Contigs:
+  Pre-processing...
+  /scratch/WholeGenomeAssembly/arcs/PF_canu_purged_arrow_c3_m10-250_s98_r0.05_e70000_z500_l3_a0.9.scaffolds.fa ==> PF_canu_purged_arrow_c3_m10-250_s98_r0.05_e70000_z500_l3_a0.9.scaffolds
+
+2021-06-04 14:07:56
+Running Basic statistics processor...
+  Contig files: 
+    PF_canu_purged_arrow_c3_m10-250_s98_r0.05_e70000_z500_l3_a0.9.scaffolds
+  Calculating N50 and L50...
+    PF_canu_purged_arrow_c3_m10-250_s98_r0.05_e70000_z500_l3_a0.9.scaffolds, N50 = 4977857, L50 = 70, Total length = 1367634235, GC % = 39.16, # N's per 100 kbp =  10.68
+  Drawing Nx plot...
+    saved to /scratch/WholeGenomeAssembly/arcs/basic_stats/Nx_plot.pdf
+  Drawing cumulative plot...
+    saved to /scratch/WholeGenomeAssembly/arcs/basic_stats/cumulative_plot.pdf
+  Drawing GC content plot...
+    saved to /scratch/WholeGenomeAssembly/arcs/basic_stats/GC_content_plot.pdf
+Done.
+
+NOTICE: Genes are not predicted by default. Use --gene-finding option to enable it.
+
+2021-06-04 14:08:58
+Creating large visual summaries...
+This may take a while: press Ctrl-C to skip this step..
+  1 of 1: Creating PDF with all tables and plots...
+Done
+
+2021-06-04 14:08:58
+RESULTS:
+  Text versions of total report are saved to /scratch/WholeGenomeAssembly/arcs/report.txt, report.tsv, and report.tex
+  Text versions of transposed total report are saved to /scratch/WholeGenomeAssembly/arcs/transposed_report.txt, transposed_report.tsv, and transposed_report.tex
+  PDF version (tables and plots) is saved to /scratch/WholeGenomeAssembly/arcs/report.pdf
+  Log saved to /scratch/WholeGenomeAssembly/arcs/quast.log
+
+Finished: 2021-06-04 14:08:58
+Elapsed time: 0:02:05.718763
+NOTICEs: 2; WARNINGs: 0; non-fatal ERRORs: 0
+
+Thank you for using QUAST!
