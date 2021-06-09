@@ -1,12 +1,4 @@
-# wrassembly
-De novo assembly of reef fishes with long and linked reads
-
-## Installation and dependencies
-
-Long Ranger v2.2.2
-ARCS v1.2.1
-LINKS v1.8.7
-[Scaff10X v4.2](https://github.com/fredjaya/Scaff10X/commit/7e8e77e6ebe4be5bb4c4e22a58010ba48d7d2a39)
+# Cirrhilabrus aquamarinus (Fairy wrasse)
 
 ## PacBio assembly
 
@@ -14,13 +6,12 @@ Previously assembled with canu and polished with arrow.
 
 Get assembly quality:
 ```
-qsub -v FA=/project/WholeGenomeAssembly/parrotfish/PF_canu_purged_arrow.fasta src/quast.sh
+qsub -v FA=/project/WholeGenomeAssembly/parrotfish/FW_canu_purged_arrow.fasta src/quast.sh
 ```
 
 ## Linked read scaffolding  
 
 **Process TELL-seq barcodes**
-
 Raw TELL-seq reads previously demultiplexed and processed with Tell-Read.
 
 TELL-seq barcodes converted and downsized to be 10X compatible:
@@ -38,19 +29,7 @@ mv R1_sl.fastq.gz.4tenx.fastq.gz FW-4M-BC_S1_L001_R1_001.fastq.gz
 mv R2_sl.fastq.gz.4tenx.fastq.gz FW-4M-BC_S1_L001_R2_001.fastq.gz
 ```
 
-```
-# Parrotfish (PF)
-ust10x -sz 4000000 \
-  -i1 TellreadOutput_I1_T506.fastq.gz.corrected.fastq.err_barcode_removed.fastq.gz \
-  -r1 TellreadOutput_R1_T506.fastq.gz.corrected.fastq.err_barcode_removed.fastq.gz \
-  -r2 TellreadOutput_R2_T506.fastq.gz.corrected.fastq.err_barcode_removed.fastq.gz \
-  -wl 4M-with-alts-february-2016.txt
-
-pigz *_sl.fastq.gz.4tenx.fastq
-
-mv R1_sl.fastq.gz.4tenx.fastq.gz PF-4M-BC_S1_L001_R1_001.fastq.gz
-mv R2_sl.fastq.gz.4tenx.fastq.gz PF-4M-BC_S1_L001_R2_001.fastq.gz
-```
+### To-do
 
 Long Ranger barcode whitelist replaced with TELL-seq whitelist.
 
