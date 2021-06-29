@@ -76,3 +76,11 @@ src/arcs_stats.sh
 
 97% reads mapped
 
+## Hi-C  
+
+### Arima pipeline to prep .bam file
+```
+cd /media/meep/GenomeAbyss/assembly/arima/PF
+ln -s PF_canu_purged_arrow_c3_m10-250_s98_r0.05_e70000_z500_l3_a0.9.scaffolds.fa .
+bwa index PF_canu_purged_arrow_c3_m10-250_s98_r0.05_e70000_z500_l3_a0.9.scaffolds.fa
+```

@@ -4,11 +4,31 @@
 
 Previously assembled with canu and polished with arrow.
 
-Get assembly quality:
+QUAST:
 ```
-qsub -v FA=/project/WholeGenomeAssembly/parrotfish/FW_canu_purged_arrow.fasta src/quast.sh
+Assembly        FW_canu_purged_arrow
+# contigs (>= 0 bp)     15330
+# contigs (>= 1000 bp)  15330
+# contigs (>= 5000 bp)  15318
+# contigs (>= 10000 bp) 15303
+# contigs (>= 25000 bp) 13738
+# contigs (>= 50000 bp) 9968
+Total length (>= 0 bp)  1551167932
+Total length (>= 1000 bp)       1551167932
+Total length (>= 5000 bp)       1551134617
+Total length (>= 10000 bp)      1551008292
+Total length (>= 25000 bp)      1519935875
+Total length (>= 50000 bp)      1380927793
+# contigs       15330
+Largest contig  1230500
+Total length    1551167932
+GC (%)  38.72
+N50     149214
+N75     85222
+L50     3255
+L75     6677
+# N's per 100 kbp       0.05
 ```
-
 ## Linked read scaffolding  
 
 **Process TELL-seq barcodes**
@@ -42,41 +62,27 @@ qsub src/longranger_basic.sh
 Scaffold draft assembly with linked-reads using ARKS/LINKS:
 ```
 src/arks.sh FW
-src/arks.sh PF
 ```
 
-FW and PF - original.gv populated but no scaffolding - change parameters
-
-**ARKS/LINKS parameter sweep**  
+**ARKS/LINKS**  
 c   | m        | z    | l   | a   | e     | num_scaffs  
 --- | -------- | ---- | --- | --- | ----- | --- 
-5   | 50-10000 | 500  | 5   | 0.3 | 30000 | 2670  
-5   | 50-10000 | 1000 | 2   | 0.9 | 30000 | 2644  
-3   | 50-10000 | 500  | 5   | 0.3 | 30000 | 2213
-2   | 50-10000 | 500  | 5   | 0.3 | 30000 | 2213
-3   | 50-10000 | 500  | 5   | 0.9 | 30000 | 2209
-3   | 50-10000 | 500  | 3   | 0.9 | 30000 | 2209
-3   | 50-10000 | 500  | 3   | 0.9 | 30000 | 1894
-3   | 50-10000 | 500  | 2   | 0.9 | 30000 | 1894
-3   | 50-10000 | 1000 | 3   | 0.9 | 30000 | 1894
-3   | 50-10000 | 500  | 3   | 0.9 | 50000 | 1731
-3   | 50-10000 | 500  | 3   | 0.9 | 70000 | 1696
-3   | 50-10000 | 500  | 3   | 0.9 | 90000 | 1711 
-3   | 10-250   | 500  | 3   | 0.9 | 70000 | 1616 
-
-Run arcs to test coverage and % reads mapping:
+5   | 50-10000 | 500  | 5   | 0.3 | 30000 | 15330  
+3   | 10-320   | 500  | 3   | 0.9 | 50000 | 14147
+3   | 10-320   | 500  | 3   | 0.9 | 50000 | 14118
 
 ```
-src/arcs.sh
+src/arcs.sh FW
 ```
-Actually achieved better results:
+
+**ARCS/LINKS**
 c   | m        | z    | l   | a   | e     | num_scaffs  
 --- | -------- | ---- | --- | --- | ----- | --- 
-3   | 10-250   | 500  | 3   | 0.9 | 70000 | 1215
+3   | 10-320   | 500  | 3   | 0.9 | 70000 | 5034 
+3   | 10-320   | 500  | 3   | 0.9 | 90000 | 5019
 
 ```
-src/arcs_stats.sh
+src/arcs_stats.sh FW_canu_purged_arrow.sorted
 ```
 
-97% reads mapped
-
+XX% reads mapped
