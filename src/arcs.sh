@@ -15,10 +15,10 @@ cp -su ${OUT}/longranger/${ID}-barcoded.fastq.gz ${ID}-barcoded.fq.gz
 ${BIN}/Examples/arcs-make arcs \
 	draft=${ID}_canu_purged_arrow \
 	reads=${ID}-barcoded \
-	c=3 \
-	a=0.9 \
-	l=3 \
+	c=5 \
+	a=0.1 \
+	l=6 \
 	z=500 \
-	e=90000 \
+	e=30000 \
 	m=10-320
 
