@@ -1,10 +1,10 @@
-# Cirrhilabrus aquamarinus (Fairy wrasse)
+# _Cirrhilabrus aquamarinus_ (Fairy wrasse)
 
 ## PacBio assembly
 
 Previously assembled with canu and polished with arrow.
 
-BUSCO:
+**BUSCO:**
 ```
 C:96.5%[S:94.8%,D:1.7%],F:0.7%,M:2.8%,n:3640
 3514    Complete BUSCOs (C)
@@ -15,7 +15,7 @@ C:96.5%[S:94.8%,D:1.7%],F:0.7%,M:2.8%,n:3640
 3640    Total BUSCO groups searched
 ```
 
-QUAST:
+**QUAST:**
 ```
 Assembly        FW_canu_purged_arrow
 # contigs (>= 0 bp)     15330
@@ -47,7 +47,6 @@ Raw TELL-seq reads previously demultiplexed and processed with Tell-Read.
 
 TELL-seq barcodes converted and downsized to be 10X compatible:
 ```
-# Fairy Wrasse (FW)
 ust10x -sz 4000000 \
   -i1 TellreadOutput_I1_T505.fastq.gz.corrected.fastq.err_barcode_removed.fastq.gz \
   -r1 TellreadOutput_R1_T505.fastq.gz.corrected.fastq.err_barcode_removed.fastq.gz \
@@ -70,11 +69,12 @@ qsub src/longranger_basic.sh
 
 3868570 unique barcodes
 
+ **ARCS/LINKS**
 ```
 src/arcs.sh FW
 ```
 
- **ARCS/LINKS**
+Parameter sweep:
  c   | m        | z    | l   | a   | e      | num_scaffs
  --- | -------- | ---- | --- | --- | ------ | ---
  5   | 10-320   | 500  | 5   | 0.3 | 30000  | 15326
@@ -82,9 +82,9 @@ src/arcs.sh FW
  3   | 8-320    | 500  | 3   | 0.9 | 30000  | 12253
  3   | 10-320   | 500  | 3   | 0.9 | 50000  | 11576
  3   | 10-320   | 500  | 3   | 0.9 | 70000  | 11428
- 3   | 10-320   | 500  | 3   | 0.9 | 90000  | 11406
- 2   | 10-320   | 500  | 3   | 0.9 | 70000  | 11406
- 3   | 10-320   | 500  | 2   | 0.9 | 70000  | 11406
+ *3* | *10-320* | *500*| *3* | *0.9*| *90000* | *11406*
+ 2   | 10-320   | 500  | 3   | 0.9 | 90000  | 11406
+ 3   | 10-320   | 500  | 2   | 0.9 | 90000  | 11406
 
 ```
 src/arcs_stats.sh FW_canu_purged_arrow.sorted
@@ -92,7 +92,7 @@ src/arcs_stats.sh FW_canu_purged_arrow.sorted
 
 83.84% reads mapped
 
-QUAST:
+**QUAST:**
 ```
 Assembly        FW_canu_purged_arrow_c3_m10-320_s98_r0.05_e90000_z500_l3_a0.9.scaffolds
 # contigs (>= 0 bp)     11406
@@ -118,4 +118,13 @@ L75     3740
 # N's per 100 kbp       25.34
 ```
 
-BUSCO: TBA
+**BUSCO:**
+```
+C:91.3%[S:86.2%,D:5.1%],F:3.5%,M:5.2%,n:3640
+3323    Complete BUSCOs (C)
+3138    Complete and single-copy BUSCOs (S)
+185     Complete and duplicated BUSCOs (D)
+127     Fragmented BUSCOs (F)
+190     Missing BUSCOs (M)
+3640    Total BUSCO groups searched
+```
