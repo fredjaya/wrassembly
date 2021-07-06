@@ -128,3 +128,98 @@ C:91.3%[S:86.2%,D:5.1%],F:3.5%,M:5.2%,n:3640
 190     Missing BUSCOs (M)
 3640    Total BUSCO groups searched
 ```
+
+## Hi-C Scaffolding
+
+98.85% mapped
+
+**QUAST:**
+```
+Assembly        FW_canu_purged_arrow_ARCS-LINKS_salsa-AD
+# contigs (>= 0 bp)     6110
+# contigs (>= 1000 bp)  6110
+# contigs (>= 5000 bp)  6099
+# contigs (>= 10000 bp) 6084
+# contigs (>= 25000 bp) 4965
+# contigs (>= 50000 bp) 3460
+Total length (>= 0 bp)  1554218332
+Total length (>= 1000 bp)       1554218332
+Total length (>= 5000 bp)       1554188451
+Total length (>= 10000 bp)      1554062126
+Total length (>= 25000 bp)      1532122409
+Total length (>= 50000 bp)      1478721239
+# contigs       6110
+Largest contig  10253513
+Total length    1554218332
+GC (%)  38.72
+N50     835054
+N75     322650
+L50     441
+L75     1184
+# N's per 100 kbp       196.32
+```
+
+**BUSCO:**
+```
+C:92.6%[S:89.4%,D:3.2%],F:2.7%,M:4.7%,n:3640
+3372    Complete BUSCOs (C)
+3254    Complete and single-copy BUSCOs (S)
+118     Complete and duplicated BUSCOs (D)
+100     Fragmented BUSCOs (F)
+168     Missing BUSCOs (M)
+3640    Total BUSCO groups searched
+```
+
+## Long read polishing
+```
+arrow_align.sh
+arrow_polish.sh
+```
+
+**QUAST:**
+```
+Assembly        FW_canu_purged_arrow_ARCS-LINKS_salsa2-AD_arrow
+# contigs (>= 0 bp)     6110
+# contigs (>= 1000 bp)  6110
+# contigs (>= 5000 bp)  6099
+# contigs (>= 10000 bp) 6084
+# contigs (>= 25000 bp) 4965
+# contigs (>= 50000 bp) 3462
+Total length (>= 0 bp)  1554132907
+Total length (>= 1000 bp)       1554132907
+Total length (>= 5000 bp)       1554103168
+Total length (>= 10000 bp)      1553976841
+Total length (>= 25000 bp)      1532032180
+Total length (>= 50000 bp)      1478740373
+# contigs       6110
+Largest contig  10248503
+Total length    1554132907
+GC (%)  38.72
+N50     837435
+N75     322960
+L50     441
+L75     1184
+# N's per 100 kbp       179.06
+```
+
+**BUSCO:**
+```
+C:92.4%[S:89.2%,D:3.2%],F:2.8%,M:4.8%,n:3640
+3364    Complete BUSCOs (C)
+3247    Complete and single-copy BUSCOs (S)
+117     Complete and duplicated BUSCOs (D)
+103     Fragmented BUSCOs (F)
+173     Missing BUSCOs (M)
+3640    Total BUSCO groups searched
+```
+
+## Linked read polishing
+
+```
+freebayes.sh FW1
+
+# bamtools split ERROR: could not open possorted_bam.REF_scaffold_1917|arrow.bam for writing
+```
+
+
+
