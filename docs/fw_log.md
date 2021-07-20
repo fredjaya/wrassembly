@@ -217,9 +217,82 @@ C:92.4%[S:89.2%,D:3.2%],F:2.8%,M:4.8%,n:3640
 
 ```
 freebayes.sh FW1
-
-# bamtools split ERROR: could not open possorted_bam.REF_scaffold_1917|arrow.bam for writing
 ```
 
+**QUAST:**
+```
+Assembly        FW_canu_purged_arrow_ARCS-LINKS_salsa2-AD_arrow_fb
+# contigs (>= 0 bp)     6110
+# contigs (>= 1000 bp)  6110
+# contigs (>= 5000 bp)  6099
+# contigs (>= 10000 bp) 6084
+# contigs (>= 25000 bp) 4965
+# contigs (>= 50000 bp) 3462
+Total length (>= 0 bp)  1553908748
+Total length (>= 1000 bp)       1553908748
+Total length (>= 5000 bp)       1553879013
+Total length (>= 10000 bp)      1553752783
+Total length (>= 25000 bp)      1531814388
+Total length (>= 50000 bp)      1478536196
+# contigs       6110
+Largest contig  10247579
+Total length    1553908748
+GC (%)  38.71
+N50     837398
+N75     322935
+L50     441
+L75     1184
+# N's per 100 kbp       179.08
+```
 
+**BUSCO:**
+```
+C:92.9%[S:89.5%,D:3.4%],F:2.6%,M:4.5%,n:3640
+3379    Complete BUSCOs (C)
+3257    Complete and single-copy BUSCOs (S)
+122     Complete and duplicated BUSCOs (D)
+94      Fragmented BUSCOs (F)
+167     Missing BUSCOs (M)
+3640    Total BUSCO groups searched
+```
 
+```
+freebayes.sh FW2
+```
+
+**QUAST:**
+```
+Assembly        FW2_canu_purged_arrow_ARCS-LINKS_salsa-AD_arrow_fb
+# contigs (>= 0 bp)     6110
+# contigs (>= 1000 bp)  6110
+# contigs (>= 5000 bp)  6099
+# contigs (>= 10000 bp) 6084
+# contigs (>= 25000 bp) 4964
+# contigs (>= 50000 bp) 3462
+Total length (>= 0 bp)  1553886075
+Total length (>= 1000 bp)       1553886075
+Total length (>= 5000 bp)       1553856345
+Total length (>= 10000 bp)      1553730122
+Total length (>= 25000 bp)      1531767074
+Total length (>= 50000 bp)      1478514777
+# contigs       6110
+Largest contig  10247466
+Total length    1553886075
+GC (%)  38.71
+N50     837331
+N75     322935
+L50     441
+L75     1184
+# N's per 100 kbp       179.09
+```
+
+**BUSCO:**
+```
+C:92.9%[S:89.5%,D:3.4%],F:2.6%,M:4.5%,n:3640
+3379    Complete BUSCOs (C)
+3257    Complete and single-copy BUSCOs (S)
+122     Complete and duplicated BUSCOs (D)
+94      Fragmented BUSCOs (F)
+167     Missing BUSCOs (M)
+3640    Total BUSCO groups searched
+```
